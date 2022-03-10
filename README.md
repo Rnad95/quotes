@@ -60,3 +60,4 @@ the output should be like the image below:
 To Test the code, you can type in the terminal:
 
 >`renad@renad-HP-Notebook:~/Desktop/LTUCTraining/Advance/quotes$` ./gradlew test
+
