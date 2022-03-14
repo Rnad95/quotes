@@ -8,7 +8,7 @@ In this Lab, we will either connect Online API with the previous project (Lab08)
 
 Next, choose a quote randomly render it with the author of this quote
 
-## Class content
+## Set-up
 
 ---
 
@@ -23,14 +23,24 @@ To see the result of the Class:
 ![Configuration](https://camo.githubusercontent.com/bc520bc30cee9475c48ca6b020c93e5fd8eec3b3f851936179d734fa4563daee/68747470733a2f2f692e6962622e636f2f634a366b4e57732f53637265656e73686f742d66726f6d2d323032322d30332d30362d31342d35392d35332e706e67)
 
 ---
-<!-- After a configuration setup, in the main class create As shown below:
-![main class](https://i.ibb.co/H499JWH/Screenshot-from-2022-03-10-23-58-20.png)
 
-> Quote q = new Quote();  
-    q.ReadGson();  
-    //q.print();  
-    q.shuffleQoute();  
-    System.out.println(q.length());   -->
+## How to Run
+
+---
+
+To run The code, you have to create a Object from favqs.  
+then, Call APIRead() method as mentioned and the figure below:
+
+> favqs q = new favqs();  
+        q.APIRead();
+
+![code to run](https://i.ibb.co/6tmznY3/Screenshot-from-2022-03-15-00-09-35.png)
+
+---
+
+## The Result
+
+---
 
 The output in Offline mode should be like the image below:
 ![Offlinemode](https://i.ibb.co/2YwxWvH/Screenshot-from-2022-03-14-23-41-02.png)

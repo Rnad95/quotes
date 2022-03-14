@@ -19,65 +19,12 @@ public class App {
     }
 
     public static void main(String[] args) throws IOException {
-        ArrayList<favqs> qo = new ArrayList();
-        System.out.println("                     ===================== Start ======================");
 
-        try {
-            URL url = new URL("https://favqs.com/api/qotd");
-        HttpURLConnection quoteURLConnection= (HttpURLConnection)  url.openConnection();
-
-        quoteURLConnection.setRequestMethod("GET");
-        InputStreamReader quoteInputStreamReader = new InputStreamReader(quoteURLConnection.getInputStream());
-        BufferedReader quoteBufferReader = new BufferedReader(quoteInputStreamReader);
-
-        String quoteData = quoteBufferReader.readLine();
-        Gson gson = new Gson();
-        favqs qotd = gson.fromJson(quoteData, favqs.class);
-            System.out.println("                     ================== online Quotes =================");
-            System.out.println(qotd);
-
-            File qotdFile = new File("qotd.json");
-
-        try (FileWriter qotdFileWriter = new FileWriter(qotdFile,true)) {
-                gson.toJson(qotd, qotdFileWriter);
-            System.out.println("                     ================= Adding to file =================");
-            System.out.println("                     ==================================================");
-//                 BufferedWriter buffer = new BufferedWriter(qotdFileWriter);
-//                 PrintWriter p = new PrintWriter(buffer);
-//                p.println(qotd);
+        favqs q = new favqs();
+        q.APIRead();
 
 
-            // If internet is not connected
-        }} catch (IOException err) {
-            System.out.println("Internet is not connected, Reading from Json file");
-
-            BufferedReader buffer = new BufferedReader(new FileReader("qotd.json"));
-            String s = null;
-            int index = 0;
-            s=buffer.readLine();
-            s= s.replaceAll("null,","");
-            String[]  StrQo = new String[100];
-            StrQo = s.split("\"quote\":");
-
-            Random rand = new Random();
-            int random =rand.nextInt(StrQo.length - 1 + 1) + 1;
-            System.out.println("                     ================= Rendering Qoute ================");
-            System.out.println("                     =============== Offline Random Quotes ==============");
-            System.out.println(random);
-                System.out.println(StrQo[random]);
-            Gson gson = new Gson();
-            favqs q = new favqs();
-            File qotdFile = new File("qotd.json");
-
-            System.out.println("                     =============================================");
-
-        }catch (Exception er){
-                System.out.println(er.getMessage());
-            }
-
-
-
-//        favqs q = new favqs();
+        
 //        q.ReadFromAPI();
 //        q.ReadGson();
 ////        q.print();
