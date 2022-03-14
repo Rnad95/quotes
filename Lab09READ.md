@@ -10,6 +10,9 @@ Next, choose a quote randomly render it with the author of this quote.
 
 - Two Methods are created in this lab: APIRead() to read quotes Online and offlineRead() Method to render random qoute from the json file was created 
 
+- The API was used here is [favqs](https://favqs.com/api)
+
+
 ## Set-up
 
 ---
