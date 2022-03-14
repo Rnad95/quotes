@@ -5,7 +5,9 @@ package quotes;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,26 +17,68 @@ class AppTest {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
+//    @Test void PathFile(){
+//        File file = new File("/home/renad/Desktop/LTUCTraining/Advance/quotes/app/src/main/resources/qoutes.json");
+//        Quote q =new Quote(file);
+//        String str="/home/renad/Desktop/LTUCTraining/Advance/quotes/app/src/main/resources/qoutes.json";
+//        assertEquals(str,q.file.getPath());
+//
+//    }
+//
+//    @Test void ReadFile(){
+//        File file = new File("/home/renad/Desktop/LTUCTraining/Advance/quotes/app/src/main/resources/qoutes.json");
+//        Quote q = new Quote(file);
+//        try (Scanner sc = new Scanner(file)) {
+//            sc.nextLine();
+//            sc.nextLine();
+//            String Str = (String)sc.nextLine();
+//            assertEquals("    \"tags\": [",Str);
+//            }catch(Exception err){
+//            System.out.println(err.getMessage());
+//        }
+//    }
 
-    @Test void PathFile(){
-        File file = new File("/home/renad/Desktop/LTUCTraining/Advance/quotes/app/src/main/resources/qoutes.json");
-        Quote q =new Quote(file);
-        String str="/home/renad/Desktop/LTUCTraining/Advance/quotes/app/src/main/resources/qoutes.json";
-        assertEquals(str,q.file.getPath());
-
-    }
-
-    @Test void ReadFile(){
-        File file = new File("/home/renad/Desktop/LTUCTraining/Advance/quotes/app/src/main/resources/qoutes.json");
-        Quote q = new Quote(file);
+    @Test void ReadAPI(){
+        File file = new File("/home/renad/Desktop/LTUCTraining/Advance/quotes/qotd.json");
+        favqs q = new favqs(file);
         try (Scanner sc = new Scanner(file)) {
-            sc.nextLine();
-            sc.nextLine();
             String Str = (String)sc.nextLine();
-            assertEquals("    \"tags\": [",Str);
+            Str = Str.substring(0,10);
+            assertEquals("{\"body\":\"\"",Str);
             }catch(Exception err){
             System.out.println(err.getMessage());
-        }
+
     }
+    }
+    @Test void connectionTest() throws IOException {
+        String Str;
+        try {
+            URL url = new URL("https://favqs.com/api/qotd");
+            HttpURLConnection quoteURLConnection = (HttpURLConnection) url.openConnection();
+            quoteURLConnection.setRequestMethod("GET");
+            InputStreamReader quoteInputStreamReader = new InputStreamReader(quoteURLConnection.getInputStream());
+            BufferedReader quoteBufferReader = new BufferedReader(quoteInputStreamReader);
+             Str = "Internet Is connected";
+        }catch(Exception er)
+        {
+             Str = "Internet Is not connected";
+        }
+        assertEquals("Internet Is connected",Str);
+    }
+//    @Test void Offline() throws IOException {
+//        String Str;
+//        try {
+//            URL url = new URL("https://favqs.com/api/qotd");
+//            HttpURLConnection quoteURLConnection = (HttpURLConnection) url.openConnection();
+//            quoteURLConnection.setRequestMethod("GET");
+//            InputStreamReader quoteInputStreamReader = new InputStreamReader(quoteURLConnection.getInputStream());
+//            BufferedReader quoteBufferReader = new BufferedReader(quoteInputStreamReader);
+//            Str = "Internet Is connected";
+//        }catch(Exception er)
+//        {
+//            Str = "Internet Is not connected";
+//        }
+//        assertEquals("Internet Is not connected",Str);
+//    }
 
 }
