@@ -6,7 +6,9 @@
 
 In this Lab, we will either connect Online API with the previous project (Lab08) or render the file json if the internet is not connected .
 
-Next, choose a quote randomly render it with the author of this quote
+Next, choose a quote randomly render it with the author of this quote.
+
+- Two Methods are created in this lab: APIRead() to read quotes Online and offlineRead() Method to render random qoute from the json file was created 
 
 ## Set-up
 
