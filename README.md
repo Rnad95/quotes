@@ -1,12 +1,24 @@
-# Quotes - Lab08
+
+# Quotes 
+
 
 ## Introduction  
 
 ---
 
-In this Lab, we will Create a Quote Class to read json file then, convert it to Array of Object.  
+In Lab08, we will Create a Quote Class to read json file then, convert it to Array of Object.  
 
-Next, choose a quote randomly from the array and render it with the author of this quote
+In Lab09, we will either connect Online API with the previous project (Lab08) or render the file json if the internet is not connected .
+
+Next, choose a quote randomly render it with the author of this quote.
+
+## Table of Lab Content
+
+| Title             | Description                    | Links         |  
+| :---              |    :----:                      |          ---: |
+|     Lab08         |    jsonConvert                 |  [Link](https://github.com/Rnad95/quotes/tree/jsonConvert)                    |
+|     Lab09         | HTTP Request in Java           | [Link](https://github.com/Rnad95/quotes/blob/APIQoutes/Lab09READ.md)          |
+
 
 ## Class content
 
@@ -60,3 +72,6 @@ the output should be like the image below:
 To Test the code, you can type in the terminal:
 
 >`renad@renad-HP-Notebook:~/Desktop/LTUCTraining/Advance/quotes$` ./gradlew test
+
+
+
